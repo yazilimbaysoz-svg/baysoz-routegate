@@ -1,0 +1,50 @@
+# Baysöz Labs <baysozlabs@proton.me> — baysoz-routegate
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "baysoz-routegate"
+version = "1.0.0"
+description = "Offline Kubernetes Gateway API route-conflict and shadowing gate with deterministic precedence resolution and SARIF CI enforcement — Baysöz Labs <baysozlabs@proton.me>"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.13"
+authors = [{ name = "Baysöz Labs", email = "baysozlabs@proton.me" }]
+maintainers = [{ name = "Baysöz Labs", email = "baysozlabs@proton.me" }]
+keywords = ["kubernetes", "gateway-api", "platform-engineering", "supply-chain", "sarif", "baysöz-labs"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "Intended Audience :: System Administrators",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: System :: Systems Administration",
+]
+dependencies = ["PyYAML>=6.0.2"]
+
+[project.scripts]
+routegate = "routegate.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/yazilimbaysoz-svg/baysoz-routegate"
+Issues = "https://github.com/yazilimbaysoz-svg/baysoz-routegate/issues"
+Organization = "https://github.com/yazilimbaysoz-svg"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/routegate"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+exclude = [".venv", ".git", "__pycache__", "dist", "build"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "S", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

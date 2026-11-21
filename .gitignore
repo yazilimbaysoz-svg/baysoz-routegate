@@ -1,0 +1,18 @@
+# Baysöz Labs <baysozlabs@proton.me> — baysoz-routegate
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+.semgrep/
+.coverage
+coverage.xml
+*.sarif
+!tests/fixtures/*.sarif
+.DS_Store
+.idea/
+.vscode/
